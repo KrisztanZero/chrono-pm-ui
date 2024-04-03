@@ -5,7 +5,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { IProject } from '../../interface/project';
-import { ProjectService } from '../../service/project.service';
 
 @Component({
   selector: 'app-project-card',
