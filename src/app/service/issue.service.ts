@@ -32,4 +32,9 @@ export class IssueService {
     });
     return (await data.json()) ?? {};
   }
+
+  async getIssueTitleById(id: string): Promise<string>{
+    const issue = await this.getIssueById(id);
+    return issue?.title ?? '';
+  }
 }
