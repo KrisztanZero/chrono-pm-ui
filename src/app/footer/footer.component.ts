@@ -15,11 +15,18 @@ export class FooterComponent {
   appDetails: IAppDetails | undefined;
   appDetailsService: AppDetailsService = inject(AppDetailsService);
 
+
   constructor() {
     this.appDetailsService
-      .getAppDetailsById('362919f6-2357-4c71-b917-f68fdb0da91d')
-      .then((appDetails) => {
-        this.appDetails = appDetails;
+      .getAllAppDetails()
+      .then((appDetailsList: IAppDetails[]) => {
+        appDetailsList.sort((a, b) => {
+          return (
+            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+          );
+        });
+
+        this.appDetails = appDetailsList[0];
       });
   }
 }
